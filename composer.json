@@ -1,0 +1,49 @@
+{
+    "name": "sukhrobnurali/laravel-db-backup",
+    "description": "A Laravel package for backing up MySQL and PostgreSQL databases with support for multiple storage drivers and scheduled backups.",
+    "keywords": [
+        "laravel",
+        "backup",
+        "database",
+        "mysql",
+        "postgresql",
+        "artisan",
+        "scheduled"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SukhrobNurali",
+            "email": "sukhrobnurali@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "illuminate/support": "^11.0",
+        "nesbot/carbon": "^2.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0",
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelDbBackup\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelDbBackup\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelDbBackup\\Providers\\DatabaseBackupServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
