@@ -3,6 +3,7 @@
 namespace LaravelDbBackup\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelDbBackup\Commands\BackupCommand;
 
 class DatabaseBackupServiceProvider extends ServiceProvider
 {
@@ -14,12 +15,13 @@ class DatabaseBackupServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
-            // Publish the configuration file.
             $this->publishes([
                 __DIR__.'/../../config/backup.php' => config_path('backup.php'),
             ], 'config');
 
-
+            $this->commands([
+                BackupCommand::class,
+            ]);
         }
     }
 
@@ -30,7 +32,6 @@ class DatabaseBackupServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Merge package configuration with the application's configuration.
         $this->mergeConfigFrom(
             __DIR__.'/../../config/backup.php',
             'backup'
