@@ -1,6 +1,6 @@
 <?php
 
-namespace YourVendor\LaravelDatabaseBackup\Providers;
+namespace LaravelDbBackup\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
